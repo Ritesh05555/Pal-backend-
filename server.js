@@ -39,7 +39,7 @@ const app = express();
 // Connect to MongoDB first
 connectDB().then(() => {
   // Middleware
-  app.use(cors({ origin: 'https://pal-frontend.onrender.com', credentials: true }));
+  app.use(cors({ origin: 'https://aapka-pal.onrender.com' , credentials: true }));
   app.use(express.json());
   app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
