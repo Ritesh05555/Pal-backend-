@@ -1,9 +1,18 @@
+// const express = require('express');
+// const router = express.Router();
+// const { getProfile, updateProfile } = require('../controllers/userController');
+// const authMiddleware = require('../middleware/auth');
+
+// router.get('/profile', authMiddleware, getProfile);
+// router.put('/profile', authMiddleware, updateProfile);
+
+// module.exports = router;
+
 const express = require('express');
 const router = express.Router();
-const { getProfile, updateProfile } = require('../controllers/userController');
-const authMiddleware = require('../middleware/auth');
+const authController = require('../controllers/authController'); // Ensure this path is correct
+const auth = require('../middleware/auth');
 
-router.get('/profile', authMiddleware, getProfile);
-router.put('/profile', authMiddleware, updateProfile);
+router.get('/profile', auth, authController.getProfile);
 
 module.exports = router;
