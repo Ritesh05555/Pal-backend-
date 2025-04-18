@@ -11,6 +11,15 @@
 
 ///////////////////////////////////////////////
 // ori
+// const express = require('express');
+// const router = express.Router();
+// const authController = require('../controllers/authController'); // Ensure this path is correct
+// const auth = require('../middleware/auth');
+
+// router.get('/profile', auth, authController.getProfile);
+
+// module.exports = router;
+
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController'); // Ensure this path is correct
