@@ -72,6 +72,8 @@
 
 // module.exports = router;
 
+////////////////////////////////////////////////////
+// ori
 const express = require('express');
 const router = express.Router();
 const contentController = require('../controllers/contentController');
@@ -86,3 +88,5 @@ router.post('/:id/like', auth, contentController.likeContent);
 router.delete('/:id', auth, contentController.deleteContent); // New delete route
 
 module.exports = router;
+
+

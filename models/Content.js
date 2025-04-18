@@ -52,6 +52,25 @@
 
 // module.exports = mongoose.model('Content', contentSchema);
 
+// const mongoose = require('mongoose');
+
+// const contentSchema = new mongoose.Schema({
+//   title: { type: String },
+//   body: { type: String, required: true },
+//   type: { type: String, enum: ['poem', 'blog', 'story', 'shayari'], required: true },
+//   mood: { type: String, enum: ['happy', 'sad', 'love', 'anxious', 'calm', 'thoughtful'], default: 'happy' },
+//   image: String,
+//   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+//   likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+//   isDraft: { type: Boolean, default: false },
+//   createdAt: { type: Date, default: Date.now },
+// });
+
+// const Content = mongoose.model('Content', contentSchema);
+// module.exports = Content;
+
+////////////////////////////////////////////////////////////////////////////////
+// // ori 
 const mongoose = require('mongoose');
 
 const contentSchema = new mongoose.Schema({
@@ -63,8 +82,10 @@ const contentSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   isDraft: { type: Boolean, default: false },
+  isPublic: { type: Boolean, default: true }, // Add this line
   createdAt: { type: Date, default: Date.now },
 });
 
 const Content = mongoose.model('Content', contentSchema);
 module.exports = Content;
+
