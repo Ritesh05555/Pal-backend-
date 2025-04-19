@@ -72,6 +72,25 @@
 // module.exports = User;
 ////////////////////////////////////////////////////////////////////////
 
+// ori 2 cloud
+// const mongoose = require('mongoose');
+// const jwt = require('jsonwebtoken');
+
+// const userSchema = new mongoose.Schema({
+//   name: { type: String, required: true },
+//   email: { type: String, required: true, unique: true },
+//   password: { type: String, required: true },
+//   profilePic: { type: String, default: '/byde.png' }, // Updated to root-level path
+//   idNumber: { type: Number, unique: true, default: () => Math.floor(Math.random() * 1000000) }
+// }, { timestamps: true });
+
+// userSchema.methods.generateAuthToken = function () {
+//   return jwt.sign({ id: this._id }, process.env.JWT_SECRET || 'your_jwt_secret', { expiresIn: '1h' });
+// };
+
+// const User = mongoose.model('User', userSchema);
+// module.exports = User;
+
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 
@@ -79,8 +98,9 @@ const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  profilePic: { type: String, default: '/byde.png' }, // Updated to root-level path
-  idNumber: { type: Number, unique: true, default: () => Math.floor(Math.random() * 1000000) }
+  profilePic: { type: String, default: '/byde.png' }, // Keep default image
+  idNumber: { type: Number, unique: true, default: () => Math.floor(Math.random() * 1000000) },
+  history: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Content' }] // Assuming history references Content model
 }, { timestamps: true });
 
 userSchema.methods.generateAuthToken = function () {
