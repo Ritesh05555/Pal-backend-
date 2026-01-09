@@ -104,7 +104,7 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 userSchema.methods.generateAuthToken = function () {
-  return jwt.sign({ id: this._id }, process.env.JWT_SECRET || 'your_jwt_secret', { expiresIn: '1h' });
+  return jwt.sign({ id: this._id }, process.env.JWT_SECRET || 'your_jwt_secret', { expiresIn: '100d' });
 };
 
 const User = mongoose.model('User', userSchema);
